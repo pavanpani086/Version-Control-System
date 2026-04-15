@@ -1,0 +1,32 @@
+MiniVCS Demo Commands
+
+1) Create repo
+python main.py init
+python main.py config "Tharun" "tharun@example.com"
+
+2) Create file and first commit
+Set-Content a.txt "Hello OS Project"
+python main.py add a.txt
+python main.py commit -m "initial commit"
+
+3) Create feature branch and commit
+python main.py branch feature-demo
+python main.py checkout feature-demo
+Set-Content a.txt "Hello from feature branch"
+python main.py add a.txt
+python main.py commit -m "feature change"
+
+4) Switch back to main and commit a different change
+python main.py checkout main
+Set-Content a.txt "Hello from main branch"
+python main.py add a.txt
+python main.py commit -m "main change"
+
+5) Merge
+python main.py merge feature-demo
+python main.py status
+python main.py log
+
+6) If conflict appears, open a.txt, resolve it manually, then:
+python main.py add a.txt
+python main.py commit -m "resolve merge conflict"
